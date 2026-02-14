@@ -1,0 +1,272 @@
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 12px;
+    margin: 0;
+    width: 400px;
+    height: 100vh;
+    background: #525626;
+    background-image: none;
+    background-size: 100vh;
+  }
+  
+  #ingResult {
+    left: -10px;
+    transform: scale(0.9);
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #wrap {
+    background: url(https://img.freepik.com/free-vector/sliced-vegetables-realistic-concept-with-tomato-pepper-onion-vector-illustration_1284-16245.jpg?t=st=1744127684~exp=1744131284~hmac=604311aa4be8436c57eb1fa2b547305eb9aa3ade0fa043d683b7c4e92dcbf9ce&w=740) repeat-y 0% 0;
+    background-size: 600px;
+    background-position: left top;
+    background-attachment: scroll;
+    margin-top: -15px;
+    height: 600px;
+  }
+}
+
+:root {
+  --red: #d33837;
+  --darkGreen: #525626;
+  --lightBrown: #b88d49;
+  --goldYellow: #e2be77;
+  --offYellow: #e5dbae;
+  --offWhite: #f2eeee;
+  --darkPink: #cf807e;
+  --lightPink: #d9afb4;
+  --greyGreen: #a9aea3;
+  --green: #6cac47;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: inline;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow-x: hidden;
+  color: #222;
+  background: linear-gradient(90deg, #ffffff 80%, #a9aea3 80%, #a9aea3 100%);
+  background-size: cover;
+  background-repeat: repeat;
+  font-family: Tahoma;
+}
+
+#sig {
+  color: var(--goldYellow);
+  margin: auto;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  top: 20px;
+  font-size: 0.6em;
+  letter-spacing: 0.25em;
+  margin-top: 5px;
+  font-size: 0.7em;
+}
+
+#myList {
+  margin: auto;
+  position: absolute;
+  margin-top: -25px;
+  width: 367px;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 200px;
+  z-index: 500;
+}
+
+#myList::-webkit-scrollbar {
+  display: none;
+}
+
+#myList {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.ing_choices {
+  display: block;
+  border: 3px solid #fff;
+  background-color: var(--offYellow);
+  font-family: arial;
+  font-size: 11px;
+  width: 222px;
+  height: 40px;
+  line-height: 2.5;
+  top: 10px;
+  text-shadow: 1px 0 0 #fff, 0 -1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff;
+}
+
+.ing_choices:hover {
+  background-color: var(--goldYellow);
+}
+
+.ing_choices_bold {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+h1, h4, h2, #preface {
+  position: relative;
+  padding: 10px;
+  font-weight: 700;
+  text-shadow: 1px 0 0 #fff, 0 -1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff;
+}
+
+#preface {
+  margin: auto;
+  width: inherit;
+  max-width: 600px;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+#imgBanner {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#text {
+  border-radius: 2px;
+  width: 220px;
+  height: 35px;
+  border: 2px solid var(--offWhite);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+#text:focus {
+  outline-color: var(--goldYellow);
+}
+
+#add, #clearForm, #random {
+  position: relative;
+  border-radius: 2px;
+  height: 40px;
+  border: 2px solid white;
+  background-color: var(--green);
+  color: var(--offWhite);
+  font-weight: bold;
+  margin: -10px 0px 10px 0px;
+}
+
+#add:hover, #clearForm:hover, #random:hover, #result:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.15), 0 3px 10px 0 rgba(0,0,0,0.08);
+}
+
+ #result {
+  position: relative;
+  border-radius: 2px;
+  height: 40px;
+  border: 2px solid white;
+  background-color: var(--green);
+  color: var(--offWhite);
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+#result:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;  
+  top: 9px;
+  right: -23px;
+  transition: 0.4s;
+}
+
+#result:hover {
+  padding-right: 22px;
+  padding-left: 5px;
+}
+
+#result:hover:after {
+  opacity: 1;
+  right: 8px;
+}
+
+#ingResult {
+  margin: auto;
+  position: relative;
+  border: 5px solid var(--goldYellow);
+  border-opacity: 0.7;
+  border-radius: 4px;
+  width: 400px;
+  height: 210px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 0 1.5px 5px 0 rgba(0,0,0,0.19);
+  gap: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  font-weight: 500;
+  font-size: 1.0em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  z-index: 1;
+}
+
+.divIngs > div {
+  width: 90px;
+  height: 22px;
+  border: 2px solid var(--offWhite);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+  background-color: var(--darkPink);
+  margin-left: 2px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 8px;
+  line-height: 20px;
+  overflow: auto;
+  font-size: 0.8em;
+}
+
+
+.discard {
+  margin: auto;
+  position: absolute;
+  display: inline;
+  top: 23px;
+  max-width: 10px;
+  max-height: 10px;
+  align-items: center;
+  border: none;
+  background-color: var(--pink);
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+.divIngs > p > .discard:hover {
+  color: var(--goldYellow);
+}
+
+#meals {
+  margin: auto;
+  margin-top: 20px;
+  font-weight: bold;
+  text-shadow: 1px 0 0 #fff, 0 -1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff;
+  font-size: 0.9em;
+  max-width: 600px;
+  line-height: 1.5em;
+  white-space: pre-line;
+}
