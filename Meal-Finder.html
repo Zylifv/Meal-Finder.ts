@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="styles.css" rel="stylesheet">
+        <title>Savoury Saviour</title>
+  </head>
+<body>
+  <div id="wrap">
+    <div id="sig">- By R McGregor</div>
+    <h1>Savoury Saviour!</h1>
+    <h2>A simple search app to find meals that you can cook at home!</h2>
+    <p id="preface">Just enter the ingredients you have available and we'll find out which meals you can make!<br>
+    (We will only assume that you have Salt, Pepper and water)</p>
+    <div id="wrapper">
+      <div class="ingSearch">
+        <form id="search">
+          <input type="text"
+                id="text"
+                placeholder="Search for ingredients..."
+                autocomplete="off"
+                oninput="datalistMatch(event)"/>
+          <button id="add" type="button" onclick="addIng()">Add item!</button>
+          <button id="clearForm" type="button">Reset</button>
+        </form>
+      </div>
+  
+      <div id="myList"></div>
+      <div id="ingResult" class="divIngs"></div>
+      <button id="result" type="button" onclick="getResult()">Find meal ideas!</button>
+      <button id="random" type="button" onclick="randomMeal()">Suggest a random meal!</button>
+      <div id="meals"></div>
+    </div>
+  <script src="script.js" type="text/javascript"></script>
+ </div>
+</body>
