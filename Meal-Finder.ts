@@ -1,12 +1,13 @@
 let userIngArr : string[] = [];
-const input = document.getElementById("text");
-const btn = document.getElementById("add");
-const clearBtn = document.getElementById("clearForm");
-const result = document.getElementById("ingResult");
-const meals = document.getElementById("meals");
-const myList = document.getElementById("myList");
+const input = document.getElementById("text") as HTMLInputElement;
+const btn = document.getElementById("add") as HTMLButtonElement;
+const clearBtn = document.getElementById("clearForm") as HTMLButtonElement;
+const result = document.getElementById("ingResult") as HTMLButtonElement;
+const meals = document.getElementById("meals") as HTMLDivElement;
+const myList = document.getElementById("myList") as HTMLDivElement;
+const ingredientResult = document.getElementById("ingResult") as HTMLDivElement;
 const recoMealArr : string[] = [];
-const regex = /[!@#$%^&*()',.?":{}|<>0-9]/ig;
+const regex : any = /[!@#$%^&*()',.?":{}|<>0-9]/ig;
 const ingredients : string[] = ["Onion", "Garlic", "Passata", "Basil", "Oregano", "Chicken", "Pork", "Potato", "Carrot", "Peppers", "Cucumber", "Mushroom", "Leek", "Sausage", "Parsley", "Flour", "Cheese", "Pasta", "Bacon", "Butter", "Stock", "Noodles", "Soy sauce", "Curry paste", "Coconut milk", "Lime"];
 const mealsArr : {
   name : string;
@@ -49,15 +50,14 @@ function insertElements(recipeTitle : string, recipeLinkRef : string)
         recipeLink.appendChild(recipeLinkText);
         recipeLink.title = recipeTitle;
         recipeLink.href = recipeLinkRef;
-        let el = document.getElementById("meals");
-            el.appendChild(recipeLink);
+        meals.appendChild(recipeLink);
 }
 
 
 function addIng() //allows the user to add ingredients from a set list which can be however many as you want
 {
   myList.style.display = "none";
-  let inputVal = document.getElementById("text").value.replace(regex,"");
+  let inputVal = input.value.replace(regex,"");
   let currVal = inputVal.charAt(0).toUpperCase() + inputVal.slice(1);
     
   for (let i : number = 0; i < ingredients.length; i++)
@@ -88,8 +88,7 @@ function addIng() //allows the user to add ingredients from a set list which can
        let newIngredientNode = document.createTextNode(`${ingredients[i]}`);  
            newIngredient.appendChild(newIngredientNode);
            newIngredient.appendChild(ingredientDelBtn);
-           let newEl = document.getElementById("ingResult");
-               newEl.appendChild(newIngredient);
+           ingredientResult.appendChild(newIngredient);
        
 
            ingredientDelBtn.onclick = function removeItem() { //NEEDS IMPROVING/FIXING
@@ -100,7 +99,7 @@ function addIng() //allows the user to add ingredients from a set list which can
                console.log(index)
                if (index !== -1)
                {
-                 newEl.removeChild(document.getElementById(ref));
+                 meals.removeChild(document.getElementById(ref) as any);
                  userIngArr.splice(index, 1);
                }
              }
@@ -110,7 +109,7 @@ function addIng() //allows the user to add ingredients from a set list which can
   }
 
   //removes the dropdown list once the user clicks on the relevant ingredient
-  myList.addEventListener("click", (e) => {
+  myList.addEventListener("click", (e : any) => {
     if (e.target.classList.contains("ing_choices"))
     {
       const id = e.target.id;
@@ -120,7 +119,7 @@ function addIng() //allows the user to add ingredients from a set list which can
  });
 
 
-function datalistMatch(e) //This is how i display the ingredients in a drop-down list to make it easier for the user to select the items they want
+function datalistMatch(e : any) //This is how i display the ingredients in a drop-down list to make it easier for the user to select the items they want
 {
   let a = document.createElement("div");
   for (let i : number = 0; i < ingredients.length; i++)
@@ -128,11 +127,11 @@ function datalistMatch(e) //This is how i display the ingredients in a drop-down
     let dropdown = document.createElement("div");
     let val = input.value;
     let ingName = ingredients[i];
-    let ingMatches = ingName.substr(0, val.length).toUpperCase() == val.toUpperCase() ? 1 : 0
+    let ingMatches = ingName.substring(0, val.length).toUpperCase() == val.toUpperCase() ? 1 : 0
     let ingChars = ingName.split(" ");
       for (let j : number = 0; j < ingChars.length; j++)
       {
-        ingMatches += ingChars[j].substr(0, val.length).toUpperCase() == val.toUpperCase() ? 1 : 0
+        ingMatches += ingChars[j].substring(0, val.length).toUpperCase() == val.toUpperCase() ? 1 : 0
       }
       if (input.value === "")
       {
@@ -161,7 +160,7 @@ function datalistMatch(e) //This is how i display the ingredients in a drop-down
 
 function getResult() //will compare the users ingredients to each of the set meals in the meals array and returns a match/no match result
 {
-    let user = new Set(userIngArr);
+    let user : any = new Set(userIngArr);
     for (let i : number = 0; i < mealsArr.length; i++)
     {
        let mealName : string = mealsArr[i].name;
@@ -176,7 +175,7 @@ function getResult() //will compare the users ingredients to each of the set mea
         }
         else //no match...
         {
-          document.getElementById("meals").textContent = `
+          meals.textContent = `
           We cannot find a recipe that can be made with your current ingredients: \n ${userIngArr.join(", ").replace(/,(?=[^,]+$)/, " &")}.`
         }
     }
@@ -188,7 +187,7 @@ clearBtn.addEventListener("click", () => { //resets the users ingredient selecti
   input.value = "";
   meals.innerText = "";
   result.innerText = "";
-  document.getElementById("meals").innerText = "";
+  meals.innerText = "";
 });
 
 function randomMeal() //chooses a random meal for the user to try and make with a link
