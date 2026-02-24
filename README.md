@@ -1,5 +1,7 @@
 # Meal-Finder.ts
 
+![app-example-picture](savoury-saviourPNG.png)
+
 A meal finder where the user can input what ingredients they have and the app returns a meal they could make.
 The recipe finder app also has a random meal option if the user just wants a meal recommendation.
 The amount of meal options are very limited because i am not using a backend server to pull from or an API that contains more options, so this is more of a working example.
